@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title>8 unique random number between 1 and 100</title>
+<script type="text/javascript" language="Javascript">
+    function pick(n, min, max){
+        var values = [], i = max;
+        while(i >= min) values.push(i--);
+        var results = [];
+        var maxIndex = max;
+        for(i=1; i <= n; i++){
+            maxIndex--;
+            var index = Math.floor(maxIndex * Math.random());
+            results.push(values[index]);
+            values[index] = values[maxIndex];
+        }
+        return results.sort();
+    }
+    function go(){
+		alert(pick(8, 1, 100));
+    }
+</script>
+</head>
+
+<body>
+    <h1>8 unique random number between 1 and 100</h1>
+    <p><button onclick="go()">Click me</button> to start generating numbers.</p>
+    <p>When the numbers appear, click OK to generate another set, or Cancel to stop.</p>
+</body>
